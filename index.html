@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vedवृक्ष | JEE, NEET, CUET, Boards</title>
+    <title>Vedवृक्ष | A Home for Lifelong Learners</title>
     <meta
       name="description"
-      content="Vedवृक्ष is a new home-based tuition setup for online and offline classes, starting with school support and exam preparation."
+      content="Vedवृक्ष is a new home-based tuition setup for online and offline classes, starting with school learning support."
     />
     <meta name="theme-color" content="#0f766e" />
     <meta property="og:title" content="Vedवृक्ष" />
-    <meta property="og:description" content="A new home tuition setup for online and offline classes, launching soon." />
+    <meta property="og:description" content="A Home for Lifelong Learners." />
     <meta property="og:image" content="assets/hero-campus.jpg" />
     <script type="application/ld+json">
       {
@@ -411,10 +411,20 @@
         min-height: 360px;
         border-radius: var(--radius);
         border: 1px solid var(--line);
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        font-weight: 900;
+        text-align: center;
+        padding: 24px;
         background:
-          linear-gradient(135deg, rgba(15,118,110,0.2), rgba(245,158,11,0.16)),
-          var(--owner-photo, url("assets/logo-vv.jpg")) center / cover no-repeat;
+          radial-gradient(circle at 50% 31%, rgba(255,255,255,0.9) 0 15%, transparent 16%),
+          radial-gradient(circle at 50% 82%, rgba(255,255,255,0.72) 0 30%, transparent 31%),
+          linear-gradient(135deg, rgba(15,118,110,0.2), rgba(245,158,11,0.16));
         box-shadow: var(--shadow);
+      }
+      .owner-photo.has-photo {
+        color: transparent;
       }
       .message-card {
         display: grid;
@@ -772,7 +782,7 @@
         <div class="shell">
           <div class="section-head reveal">
             <h2>About Vedवृक्ष</h2>
-            <p>A new home tuition initiative focused on strong basics, patient teaching and practical exam preparation.</p>
+            <p>A new home tuition initiative focused on strong basics, patient teaching and steady learning support.</p>
           </div>
           <div class="about-grid">
             <article class="glass-card reveal">
@@ -800,7 +810,9 @@
             <h2>Message from Sonal</h2>
           </div>
           <div class="person-grid">
-            <div class="owner-photo reveal" id="ownerPhoto" role="img" aria-label="Sonal photo placeholder"></div>
+            <div class="owner-photo reveal" id="ownerPhoto" role="img" aria-label="Sonal photo placeholder">
+              Sonal Photo
+            </div>
             <article class="glass-card message-card reveal">
               <div>
                 <h3>Message from Sonal</h3>
@@ -830,15 +842,15 @@
       <section id="courses">
         <div class="shell">
           <div class="section-head reveal">
-            <h2>Planned Courses</h2>
-            <p>Final batch dates, duration and fees will be updated after launch.</p>
+            <h2>Learning Plans</h2>
+            <p>Subjects, batch timing and class details will be updated once the setup is ready.</p>
           </div>
           <div class="course-grid">
             <article class="course-card reveal"><span class="course-icon">4-9</span><h3>Class 4th to 9th</h3><p>Foundation support for Maths, Science and school learning.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
             <article class="course-card reveal"><span class="course-icon">11</span><h3>Class 11-12 Science</h3><p>Concept-focused preparation for Physics, Chemistry, Maths and Biology.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
-            <article class="course-card reveal"><span class="course-icon">B</span><h3>Board Preparation</h3><p>Revision and writing-practice support for board exams.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
-            <article class="course-card reveal"><span class="course-icon">O</span><h3>Olympiad Preparation</h3><p>Reasoning and advanced practice for interested students.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
-            <article class="course-card reveal"><span class="course-icon">G</span><h3>Government Exam Preparation</h3><p>Basic preparation support for selected competitive exams.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
+            <article class="course-card reveal"><span class="course-icon">B</span><h3>School Revision</h3><p>Revision and writing-practice support for school assessments.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
+            <article class="course-card reveal"><span class="course-icon">D</span><h3>Doubt Support</h3><p>Regular doubt clearing and guided practice for interested students.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
+            <article class="course-card reveal"><span class="course-icon">H</span><h3>Homework Help</h3><p>Basic learning support for homework, concepts and practice.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
           </div>
         </div>
       </section>
@@ -881,9 +893,9 @@
                 <select aria-label="Course interest" name="courseInterest">
                   <option>Class 4th to 9th</option>
                   <option>Class 11-12 Science</option>
-                  <option>Board Exam Preparation</option>
-                  <option>Olympiad Preparation</option>
-                  <option>Government Exam Preparation</option>
+                  <option>School Revision</option>
+                  <option>Doubt Support</option>
+                  <option>Homework Help</option>
                 </select>
                 <textarea aria-label="Message" name="message" placeholder="Any question or preferred batch timing?"></textarea>
                 <button class="btn btn-primary" type="submit">Send Enquiry</button>
@@ -910,7 +922,7 @@
         <div class="footer-grid">
           <div><div class="brand footer-brand"><img class="brand-mark" src="assets/logo-vv.jpg" alt="Vedवृक्ष logo" /><span><strong>Vedवृक्ष</strong></span></div><p>A Home for Lifelong Learners.</p></div>
           <div><h3>Links</h3><a href="#about">About</a><a href="#sonal">Message from Sonal</a><a href="#faculty">Faculty</a><a href="careers.html">Career</a><a href="#contact">Enquiry</a></div>
-          <div><h3>Courses</h3><a href="#courses">Class 4th to 9th</a><a href="#courses">Class 11-12 Science</a><a href="#courses">Boards</a><a href="#courses">Competitive Exams</a></div>
+          <div><h3>Learning</h3><a href="#courses">Class 4th to 9th</a><a href="#courses">Class 11-12 Science</a><a href="#courses">School Revision</a><a href="#courses">Doubt Support</a></div>
         </div>
         <div class="copyright"><span>© 2026 Vedवृक्ष. All rights reserved.</span></div>
       </div>
@@ -957,7 +969,13 @@
         const people = window.VEDVRIKSH_PEOPLE || {};
         const owner = people.owner || {};
         const ownerPhoto = document.querySelector("#ownerPhoto");
-        if (owner.photo) ownerPhoto.style.setProperty("--owner-photo", `url("${owner.photo}")`);
+        if (owner.photo) {
+          ownerPhoto.style.backgroundImage = `url("${owner.photo}")`;
+          ownerPhoto.style.backgroundPosition = "center";
+          ownerPhoto.style.backgroundSize = "cover";
+          ownerPhoto.style.backgroundRepeat = "no-repeat";
+          ownerPhoto.classList.add("has-photo");
+        }
         if (owner.name) ownerPhoto.setAttribute("aria-label", `${owner.name} photo`);
         if (owner.message) document.querySelector("#ownerMessage").textContent = owner.message;
         if (owner.about) document.querySelector("#ownerAbout").textContent = owner.about;
