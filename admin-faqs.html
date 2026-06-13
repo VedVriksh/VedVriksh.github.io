@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vedvriksh FAQ Admin Helper</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f7fbf8;
+        color: #13221f;
+      }
+      main { width: min(920px, calc(100% - 28px)); margin: 0 auto; padding: 42px 0; }
+      h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.05; }
+      p { color: #64716d; }
+      .card {
+        background: white;
+        border: 1px solid rgba(15, 118, 110, 0.14);
+        border-radius: 8px;
+        padding: 18px;
+        box-shadow: 0 20px 60px rgba(22, 47, 42, 0.12);
+        margin-top: 16px;
+      }
+      .grid { display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 10px; align-items: end; }
+      label { display: grid; gap: 6px; color: #41514c; font-weight: 700; }
+      input, textarea {
+        width: 100%;
+        border: 1px solid rgba(15, 118, 110, 0.18);
+        border-radius: 8px;
+        padding: 12px;
+        font: inherit;
+      }
+      textarea { min-height: 240px; resize: vertical; }
+      button {
+        border: 0;
+        border-radius: 8px;
+        padding: 12px 14px;
+        min-height: 46px;
+        cursor: pointer;
+        background: #0f766e;
+        color: white;
+        font-weight: 800;
+      }
+      button.secondary { background: #eef7f3; color: #0f766e; }
+      .items { display: grid; gap: 10px; margin-top: 14px; }
+      .item {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        border: 1px solid rgba(15, 118, 110, 0.12);
+        border-radius: 8px;
+        padding: 12px;
+        background: #fbfefc;
+      }
+      @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>FAQ Admin Helper</h1>
+      <p>Add questions and answers here, then copy the generated code into <b>faqs.js</b> on GitHub.</p>
+
+      <section class="card">
+        <div class="grid">
+          <label>Question <input id="question" placeholder="Example: When will classes start?" /></label>
+          <label>Answer <input id="answer" placeholder="Example: Class timing will be updated soon." /></label>
+          <button id="addBtn">Add</button>
+        </div>
+        <div class="items" id="items"></div>
+      </section>
+
+      <section class="card">
+        <p>Copy this into <b>faqs.js</b>:</p>
+        <textarea id="output" readonly>window.VEDVRIKSH_FAQS = [];</textarea>
+        <p><button class="secondary" id="copyBtn">Copy Code</button></p>
+      </section>
+    </main>
+    <script>
+      const faqs = [];
+      const question = document.querySelector("#question");
+      const answer = document.querySelector("#answer");
+      const items = document.querySelector("#items");
+      const output = document.querySelector("#output");
+
+      function refresh() {
+        items.innerHTML = faqs.map((faq, index) => `
+          <div class="item">
+            <span><b>${faq.question}</b><br>${faq.answer}</span>
+            <button class="secondary" data-index="${index}">Remove</button>
+          </div>
+        `).join("");
+        output.value = `window.VEDVRIKSH_FAQS = ${JSON.stringify(faqs, null, 2)};`;
+      }
+
+      document.querySelector("#addBtn").addEventListener("click", () => {
+        if (!question.value.trim() || !answer.value.trim()) return alert("Please enter both question and answer.");
+        faqs.push({ question: question.value.trim(), answer: answer.value.trim() });
+        question.value = "";
+        answer.value = "";
+        refresh();
+      });
+
+      items.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-index]");
+        if (!button) return;
+        faqs.splice(Number(button.dataset.index), 1);
+        refresh();
+      });
+
+      document.querySelector("#copyBtn").addEventListener("click", async () => {
+        await navigator.clipboard.writeText(output.value);
+        alert("Copied. Paste it into faqs.js on GitHub.");
+      });
+    </script>
+  </body>
+</html>

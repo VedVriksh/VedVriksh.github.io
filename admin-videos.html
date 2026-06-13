@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vedvriksh Video Admin Helper</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f7fbf8;
+        color: #13221f;
+      }
+      main {
+        width: min(920px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 42px 0;
+      }
+      h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.05; }
+      p { color: #64716d; }
+      .card {
+        background: white;
+        border: 1px solid rgba(15, 118, 110, 0.14);
+        border-radius: 8px;
+        padding: 18px;
+        box-shadow: 0 20px 60px rgba(22, 47, 42, 0.12);
+        margin-top: 16px;
+      }
+      .grid { display: grid; grid-template-columns: 1fr 1.5fr 130px auto; gap: 10px; align-items: end; }
+      label { display: grid; gap: 6px; color: #41514c; font-weight: 700; }
+      input, select, textarea {
+        width: 100%;
+        border: 1px solid rgba(15, 118, 110, 0.18);
+        border-radius: 8px;
+        padding: 12px;
+        font: inherit;
+      }
+      textarea { min-height: 260px; resize: vertical; }
+      button {
+        border: 0;
+        border-radius: 8px;
+        padding: 12px 14px;
+        min-height: 46px;
+        cursor: pointer;
+        background: #0f766e;
+        color: white;
+        font-weight: 800;
+      }
+      button.secondary { background: #eef7f3; color: #0f766e; }
+      .items { display: grid; gap: 10px; margin-top: 14px; }
+      .item {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        border: 1px solid rgba(15, 118, 110, 0.12);
+        border-radius: 8px;
+        padding: 12px;
+        background: #fbfefc;
+      }
+      @media (max-width: 760px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Video Admin Helper</h1>
+      <p>Add YouTube video or Shorts links here, then copy the generated code into <b>videos.js</b> on GitHub.</p>
+
+      <section class="card">
+        <div class="grid">
+          <label>Title <input id="title" placeholder="Example: Welcome to Vedvriksh" /></label>
+          <label>YouTube link <input id="url" placeholder="https://www.youtube.com/watch?v=..." /></label>
+          <label>Type <select id="type"><option value="video">Video</option><option value="short">Short</option></select></label>
+          <button id="addBtn">Add</button>
+        </div>
+        <div class="items" id="items"></div>
+      </section>
+
+      <section class="card">
+        <p>Copy this into <b>videos.js</b>:</p>
+        <textarea id="output" readonly>window.VEDVRIKSH_VIDEOS = [];</textarea>
+        <p><button class="secondary" id="copyBtn">Copy Code</button></p>
+      </section>
+    </main>
+    <script>
+      const videos = [];
+      const title = document.querySelector("#title");
+      const url = document.querySelector("#url");
+      const type = document.querySelector("#type");
+      const items = document.querySelector("#items");
+      const output = document.querySelector("#output");
+
+      function refresh() {
+        items.innerHTML = videos.map((video, index) => `
+          <div class="item">
+            <span><b>${video.title}</b><br>${video.type}: ${video.url}</span>
+            <button class="secondary" data-index="${index}">Remove</button>
+          </div>
+        `).join("");
+        output.value = `window.VEDVRIKSH_VIDEOS = ${JSON.stringify(videos, null, 2)};`;
+      }
+
+      document.querySelector("#addBtn").addEventListener("click", () => {
+        if (!url.value.trim()) return alert("Please paste a YouTube link.");
+        videos.push({
+          title: title.value.trim() || "Vedvriksh update",
+          url: url.value.trim(),
+          type: type.value
+        });
+        title.value = "";
+        url.value = "";
+        refresh();
+      });
+
+      items.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-index]");
+        if (!button) return;
+        videos.splice(Number(button.dataset.index), 1);
+        refresh();
+      });
+
+      document.querySelector("#copyBtn").addEventListener("click", async () => {
+        await navigator.clipboard.writeText(output.value);
+        alert("Copied. Paste it into videos.js on GitHub.");
+      });
+    </script>
+  </body>
+</html>

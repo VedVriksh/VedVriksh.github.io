@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vedवृक्ष | JEE, NEET, CUET, Boards</title>
+    <meta
+      name="description"
+      content="Vedवृक्ष is a new home-based tuition setup for online and offline classes, starting with school support and exam preparation."
+    />
+    <meta name="theme-color" content="#0f766e" />
+    <meta property="og:title" content="Vedवृक्ष" />
+    <meta property="og:description" content="A new home tuition setup for online and offline classes, launching soon." />
+    <meta property="og:image" content="assets/hero-campus.jpg" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Vedवृक्ष",
+        "description": "New home-based tuition setup for online and offline classes.",
+        "telephone": "+91 98765 43210",
+        "email": "vedvriksh.sn@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Main Education Road",
+          "addressLocality": "Your City",
+          "addressCountry": "IN"
+        }
+      }
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f8fbf7;
+        --surface: rgba(255, 255, 255, 0.76);
+        --surface-strong: #ffffff;
+        --ink: #13221f;
+        --muted: #61706c;
+        --line: rgba(24, 64, 57, 0.12);
+        --brand: #0f766e;
+        --brand-2: #f59e0b;
+        --brand-3: #2563eb;
+        --soft: #e8f6ef;
+        --shadow: 0 24px 70px rgba(22, 47, 42, 0.14);
+        --inner: inset 6px 6px 14px rgba(16, 45, 39, 0.08), inset -6px -6px 18px rgba(255, 255, 255, 0.85);
+        --radius: 8px;
+        --max: 1180px;
+      }
+
+      [data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #081311;
+        --surface: rgba(18, 31, 29, 0.78);
+        --surface-strong: #101c1a;
+        --ink: #eef8f4;
+        --muted: #abc0bb;
+        --line: rgba(220, 255, 244, 0.12);
+        --soft: #10231f;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+        --inner: inset 6px 6px 14px rgba(0, 0, 0, 0.28), inset -6px -6px 18px rgba(255, 255, 255, 0.04);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(245, 158, 11, 0.18), transparent 30rem),
+          radial-gradient(circle at 88% 8%, rgba(37, 99, 235, 0.12), transparent 24rem),
+          linear-gradient(180deg, var(--bg), var(--bg));
+        color: var(--ink);
+        line-height: 1.6;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      button, input, textarea, select { font: inherit; }
+
+      .shell { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(20px);
+        background: color-mix(in srgb, var(--bg) 74%, transparent);
+      }
+      .nav-inner {
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 190px;
+      }
+      .brand-mark {
+        width: 96px;
+        height: 54px;
+        border-radius: 8px;
+        object-fit: contain;
+        border: 1px solid rgba(245, 158, 11, 0.34);
+        background: #07101b;
+        box-shadow: var(--shadow);
+      }
+      .brand strong { display: block; font-size: 1.25rem; line-height: 1; }
+      .brand span { display: block; color: var(--muted); font-size: 0.78rem; }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .nav-links a:hover { color: var(--brand); }
+      .nav-actions { display: flex; align-items: center; gap: 10px; }
+      .icon-btn, .menu-btn {
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        color: var(--ink);
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        box-shadow: var(--inner);
+      }
+      .menu-btn { display: none; }
+
+      .btn {
+        border: 0;
+        border-radius: var(--radius);
+        padding: 12px 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 46px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--brand), #17a56b);
+        color: white;
+        box-shadow: 0 16px 30px rgba(15, 118, 110, 0.24);
+      }
+      .btn-secondary {
+        background: var(--surface-strong);
+        border: 1px solid var(--line);
+        color: var(--ink);
+        box-shadow: var(--inner);
+      }
+
+      .hero {
+        min-height: calc(100vh - 74px);
+        display: grid;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, color-mix(in srgb, var(--bg) 95%, transparent) 0%, color-mix(in srgb, var(--bg) 82%, transparent) 42%, transparent 70%),
+          url(var(--hero-cover, "assets/hero-campus.jpg")) right center / cover no-repeat;
+        z-index: -2;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 180px;
+        background: linear-gradient(180deg, transparent, var(--bg));
+        z-index: -1;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.8fr);
+        gap: 28px;
+        padding: 76px 0 46px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        color: var(--brand);
+        font-weight: 800;
+        backdrop-filter: blur(16px);
+      }
+      h1, h2, h3 { line-height: 1.08; margin: 0; letter-spacing: 0; }
+      h1 {
+        margin-top: 18px;
+        font-size: clamp(2.45rem, 7vw, 5.7rem);
+        max-width: 820px;
+      }
+      .hero p {
+        max-width: 650px;
+        color: var(--muted);
+        font-size: clamp(1.02rem, 2vw, 1.28rem);
+      }
+      .hero-actions, .row-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 30px;
+      }
+      .stat, .glass-card, .course-card, .profile-card, .resource-card, .event-card, .blog-card, .portal-panel {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        backdrop-filter: blur(18px);
+        box-shadow: var(--shadow);
+      }
+      .stat { padding: 15px; }
+      .stat strong { display: block; font-size: 1.55rem; color: var(--brand); }
+      .stat span { color: var(--muted); font-size: 0.84rem; }
+      .hero-card {
+        align-self: end;
+        padding: 22px;
+        margin-top: 170px;
+      }
+      .hero-card h3 { font-size: 1.25rem; }
+      .rank-list { display: grid; gap: 12px; margin-top: 18px; }
+      .rank {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px;
+        border-radius: var(--radius);
+        background: color-mix(in srgb, var(--surface-strong) 72%, transparent);
+        box-shadow: var(--inner);
+      }
+      .avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+        color: white;
+        background: linear-gradient(135deg, var(--brand-3), var(--brand));
+      }
+
+      section { padding: 84px 0; }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: end;
+        margin-bottom: 30px;
+      }
+      .section-head h2 { font-size: clamp(2rem, 4vw, 3.3rem); max-width: 740px; }
+      .section-head p { color: var(--muted); max-width: 460px; margin: 0; }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .logo-meaning {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 18px;
+        align-items: center;
+        margin-top: 18px;
+      }
+      .about-logo {
+        width: 132px;
+        height: 132px;
+        object-fit: contain;
+        border-radius: var(--radius);
+        border: 1px solid rgba(245, 158, 11, 0.34);
+        background: #07101b;
+        box-shadow: var(--shadow);
+      }
+      .meaning-image {
+        width: 100%;
+        max-height: 170px;
+        object-fit: contain;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background: #07101b;
+        box-shadow: var(--shadow);
+      }
+      .glass-card { padding: 24px; }
+      .glass-card h3 { font-size: 1.28rem; margin-bottom: 8px; }
+      .glass-card p, .course-card p, .profile-card p, .resource-card p, .event-card p, .blog-card p { color: var(--muted); margin: 0; }
+      .feature-grid, .course-grid, .faculty-grid, .resource-grid, .event-grid, .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .feature {
+        padding: 18px;
+        border-radius: var(--radius);
+        background: var(--soft);
+        border: 1px solid var(--line);
+      }
+      .feature i, .course-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: var(--radius);
+        display: grid;
+        place-items: center;
+        background: white;
+        color: var(--brand);
+        box-shadow: var(--inner);
+        font-style: normal;
+        margin-bottom: 12px;
+      }
+      [data-theme="dark"] .feature i, [data-theme="dark"] .course-icon { background: #172522; }
+      .timeline {
+        display: grid;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .mile {
+        display: grid;
+        grid-template-columns: 76px 1fr;
+        gap: 14px;
+        align-items: start;
+      }
+      .year {
+        color: var(--brand);
+        font-weight: 900;
+      }
+
+      .course-card, .profile-card, .resource-card, .event-card, .blog-card {
+        padding: 22px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 180ms ease, border 180ms ease;
+      }
+      .course-card:hover, .profile-card:hover, .resource-card:hover, .event-card:hover, .blog-card:hover {
+        transform: translateY(-5px);
+        border-color: color-mix(in srgb, var(--brand) 45%, var(--line));
+      }
+      .course-card h3 { font-size: 1.25rem; margin-bottom: 8px; }
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 16px 0;
+      }
+      .chip {
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        padding: 6px 10px;
+        color: var(--muted);
+        background: color-mix(in srgb, var(--surface-strong) 72%, transparent);
+        font-size: 0.82rem;
+        font-weight: 750;
+      }
+      .list {
+        padding: 0;
+        margin: 14px 0 18px;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+        color: var(--muted);
+      }
+      .list li::before { content: "✓"; color: var(--brand); font-weight: 900; margin-right: 8px; }
+
+      .profile-photo {
+        height: 174px;
+        border-radius: var(--radius);
+        background:
+          linear-gradient(135deg, rgba(15, 118, 110, 0.9), rgba(245, 158, 11, 0.7)),
+          radial-gradient(circle at 30% 20%, rgba(255,255,255,0.7), transparent 26%),
+          linear-gradient(135deg, #dff7ef, #fef3c7);
+        margin-bottom: 18px;
+        position: relative;
+        overflow: hidden;
+      }
+      .profile-photo::after {
+        content: "";
+        position: absolute;
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.84);
+        left: 50%;
+        top: 26px;
+        transform: translateX(-50%);
+        box-shadow: 0 86px 0 32px rgba(255,255,255,0.76);
+      }
+      .person-grid {
+        display: grid;
+        grid-template-columns: 0.72fr 1.28fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+      .owner-photo {
+        min-height: 360px;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(135deg, rgba(15,118,110,0.2), rgba(245,158,11,0.16)),
+          var(--owner-photo, url("assets/logo-vv.jpg")) center / cover no-repeat;
+        box-shadow: var(--shadow);
+      }
+      .message-card {
+        display: grid;
+        gap: 18px;
+      }
+      .message-card .quote {
+        font-size: clamp(1.12rem, 2vw, 1.45rem);
+        color: var(--ink);
+        margin: 0;
+      }
+      .faculty-photo {
+        height: 210px;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background: var(--faculty-photo, url("assets/logo-vv.jpg")) center / cover no-repeat;
+        margin-bottom: 16px;
+      }
+      .faculty-empty {
+        grid-column: 1 / -1;
+      }
+
+      .results-band {
+        background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 16%, transparent), color-mix(in srgb, var(--brand-2) 18%, transparent));
+        border-block: 1px solid var(--line);
+      }
+      .rankers {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+      }
+      .score-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .score {
+        padding: 18px;
+        border-radius: var(--radius);
+        background: var(--surface-strong);
+        border: 1px solid var(--line);
+      }
+      .score strong { display: block; font-size: 2rem; color: var(--brand); }
+
+      .testimonials {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      blockquote {
+        margin: 0;
+        padding: 22px;
+        border-radius: var(--radius);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+      blockquote p { margin: 0 0 18px; color: var(--muted); }
+      .stars { color: var(--brand-2); letter-spacing: 0; }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr 0.8fr;
+        grid-auto-rows: 190px;
+        gap: 14px;
+      }
+      .gallery-item {
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        overflow: hidden;
+        min-height: 180px;
+        background:
+          linear-gradient(135deg, rgba(15,118,110,0.22), rgba(245,158,11,0.15)),
+            url("assets/hero-campus.jpg") center / cover;
+        position: relative;
+      }
+      .gallery-item:first-child { grid-row: span 2; }
+      .gallery-item span {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        padding: 8px 10px;
+        border-radius: var(--radius);
+        background: rgba(255,255,255,0.86);
+        color: #13221f;
+        font-weight: 850;
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+      .tab {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--muted);
+        border-radius: 999px;
+        padding: 10px 14px;
+        cursor: pointer;
+        font-weight: 850;
+      }
+      .tab.active { background: var(--brand); color: white; }
+      .portal-panel { padding: 22px; display: none; }
+      .portal-panel.active { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 18px; }
+      .dash-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .dash-card {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface-strong);
+      }
+      .bar {
+        height: 10px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--brand) 16%, var(--line));
+        overflow: hidden;
+        margin-top: 10px;
+      }
+      .bar span { display: block; height: 100%; width: var(--value); background: linear-gradient(90deg, var(--brand), var(--brand-2)); }
+
+      .faq {
+        display: grid;
+        gap: 12px;
+        max-width: 880px;
+      }
+      details {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        border-radius: var(--radius);
+        padding: 16px 18px;
+        box-shadow: var(--shadow);
+      }
+      summary { cursor: pointer; font-weight: 900; }
+      details p { color: var(--muted); margin-bottom: 0; }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .video-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        backdrop-filter: blur(18px);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .video-frame {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 0;
+        display: block;
+        background: #0f172a;
+      }
+      .video-card.short .video-frame {
+        aspect-ratio: 9 / 16;
+      }
+      .video-body {
+        padding: 16px;
+      }
+      .video-body h3 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+      .video-body p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .empty-videos {
+        padding: 22px;
+        border: 1px dashed color-mix(in srgb, var(--brand) 42%, var(--line));
+        border-radius: var(--radius);
+        color: var(--muted);
+        background: var(--surface);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 18px;
+      }
+      form {
+        display: grid;
+        gap: 12px;
+      }
+      input, textarea, select {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 13px 14px;
+        background: var(--surface-strong);
+        color: var(--ink);
+      }
+      textarea { min-height: 120px; resize: vertical; }
+      .map {
+        min-height: 360px;
+        border: 0;
+        width: 100%;
+        border-radius: var(--radius);
+        filter: saturate(0.9);
+      }
+      .floating-whatsapp {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 30;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: white;
+        background: #16a34a;
+        box-shadow: 0 18px 42px rgba(22, 163, 74, 0.34);
+        font-weight: 900;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 44px 0 22px;
+        background: color-mix(in srgb, var(--surface-strong) 62%, transparent);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.3fr repeat(3, 1fr);
+        gap: 22px;
+      }
+      footer h3 { font-size: 1rem; margin-bottom: 12px; }
+      footer a, footer p { display: block; color: var(--muted); margin: 7px 0; }
+      .footer-brand {
+        display: block;
+      }
+      .footer-brand .brand-mark {
+        width: 132px;
+        height: 132px;
+        margin-bottom: 12px;
+      }
+      .copyright {
+        border-top: 1px solid var(--line);
+        margin-top: 28px;
+        padding-top: 18px;
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .reveal { opacity: 0; transform: translateY(18px); transition: opacity 500ms ease, transform 500ms ease; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+
+      @media (max-width: 980px) {
+        .nav-links {
+          position: fixed;
+          inset: 74px 12px auto;
+          flex-direction: column;
+          align-items: stretch;
+          padding: 18px;
+          border: 1px solid var(--line);
+          border-radius: var(--radius);
+          background: var(--surface-strong);
+          box-shadow: var(--shadow);
+          display: none;
+        }
+        .nav-links.open { display: flex; }
+        .menu-btn { display: grid; }
+        .hero-grid, .about-grid, .rankers, .portal-panel.active, .contact-grid, .person-grid, .logo-meaning { grid-template-columns: 1fr; }
+        .hero-card { margin-top: 20px; }
+        .feature-grid, .course-grid, .faculty-grid, .resource-grid, .event-grid, .blog-grid, .testimonials, .video-grid { grid-template-columns: repeat(2, 1fr); }
+        .section-head { display: block; }
+        .section-head p { margin-top: 12px; }
+        .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+
+      @media (max-width: 640px) {
+        .shell { padding: 0 14px; }
+        .nav-inner { min-height: 66px; }
+        .nav-links { inset-top: 66px; }
+        .brand { min-width: auto; }
+        .brand > span:not(:first-child) { display: none; }
+        .brand-mark { width: 78px; height: 48px; }
+        .nav-actions .btn { display: none; }
+        .hero { min-height: auto; }
+        .hero::before {
+          background:
+            linear-gradient(180deg, color-mix(in srgb, var(--bg) 96%, transparent) 0%, color-mix(in srgb, var(--bg) 86%, transparent) 58%, color-mix(in srgb, var(--bg) 58%, transparent)),
+            url(var(--hero-cover, "assets/hero-campus.jpg")) center top / cover no-repeat;
+        }
+        .hero-grid { padding-top: 54px; }
+        .stats, .score-grid, .feature-grid, .course-grid, .faculty-grid, .resource-grid, .event-grid, .blog-grid, .testimonials, .dash-grid, .footer-grid, .video-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+        .gallery-item:first-child { grid-row: span 1; }
+        section { padding: 58px 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav" aria-label="Main navigation">
+      <div class="shell nav-inner">
+        <a class="brand" href="#home" aria-label="Vedवृक्ष home">
+          <img class="brand-mark" src="assets/logo-vv.jpg" alt="Vedवृक्ष logo" />
+          <span><strong>Vedवृक्ष</strong></span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#sonal">Sonal</a>
+          <a href="#courses">Courses</a>
+          <a href="#faculty">Faculty</a>
+          <a href="#videos">Videos</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle dark and light mode">☾</button>
+          <a class="btn btn-primary" href="#contact">Enquire Now</a>
+          <button class="menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="shell hero-grid">
+          <div class="reveal">
+            <h1>Vedवृक्ष</h1>
+            <p>Vedवृक्ष is starting as a small home-based coaching and tuition setup for school students. Batch details, timings and admission updates will be announced soon.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Register Interest</a>
+              <a class="btn btn-secondary" href="#courses">View Planned Courses</a>
+            </div>
+            <div class="stats" aria-label="Launch information">
+              <div class="stat"><strong>Soon</strong><span>Batch updates</span></div>
+              <div class="stat"><strong>Home</strong><span>Tuition setup</span></div>
+              <div class="stat"><strong>Simple</strong><span>Clear guidance</span></div>
+              <div class="stat"><strong>Open</strong><span>Enquiry form</span></div>
+            </div>
+          </div>
+          <aside class="glass-card hero-card reveal">
+            <h3>Our Motive</h3>
+            <p>We are starting small, from home, with online and offline support. This website currently shares the planned direction and collects enquiries from interested students and parents.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="shell">
+          <div class="section-head reveal">
+            <h2>About Vedवृक्ष</h2>
+            <p>A new home tuition initiative focused on strong basics, patient teaching and practical exam preparation.</p>
+          </div>
+          <div class="about-grid">
+            <article class="glass-card reveal">
+              <h3>What we are building</h3>
+              <p>Vedवृक्ष is planned as a supportive home-based tuition option for students who need concept clarity, regular practice and honest guidance.</p>
+            </article>
+            <article class="glass-card reveal">
+              <h3>Our approach</h3>
+              <p>Simple teaching, online/offline classes, small batches, regular doubt support and clear communication with parents.</p>
+            </article>
+          </div>
+          <article class="glass-card logo-meaning reveal">
+            <img class="about-logo" src="assets/logo-vv.jpg" alt="Vedवृक्ष logo" />
+            <div>
+              <h3>What the Logo Represents</h3>
+              <img class="meaning-image" src="assets/logo-meaning.jpg" alt="Vedवृक्ष logo meaning" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="sonal">
+        <div class="shell">
+          <div class="section-head reveal">
+            <h2>Message from Sonal</h2>
+          </div>
+          <div class="person-grid">
+            <div class="owner-photo reveal" id="ownerPhoto" role="img" aria-label="Sonal photo placeholder"></div>
+            <article class="glass-card message-card reveal">
+              <div>
+                <h3>Message from Sonal</h3>
+                <p class="quote" id="ownerMessage">Message will be added soon.</p>
+              </div>
+              <div>
+                <h3>About Me</h3>
+                <p id="ownerAbout">About Me details will be added soon.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="videos">
+        <div class="shell">
+          <div class="section-head reveal">
+            <h2>Videos & Shorts</h2>
+            <p>YouTube videos and Shorts can be added from GitHub by updating the video links file.</p>
+          </div>
+          <div id="videoGrid" class="video-grid reveal" aria-live="polite">
+            <div class="empty-videos">No videos added yet. Add YouTube links in <b>videos.js</b> and they will appear here.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="courses">
+        <div class="shell">
+          <div class="section-head reveal">
+            <h2>Planned Courses</h2>
+            <p>Final batch dates, duration and fees will be updated after launch.</p>
+          </div>
+          <div class="course-grid">
+            <article class="course-card reveal"><span class="course-icon">4-9</span><h3>Class 4th to 9th</h3><p>Foundation support for Maths, Science and school learning.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
+            <article class="course-card reveal"><span class="course-icon">11</span><h3>Class 11-12 Science</h3><p>Concept-focused preparation for Physics, Chemistry, Maths and Biology.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
+            <article class="course-card reveal"><span class="course-icon">B</span><h3>Board Preparation</h3><p>Revision and writing-practice support for board exams.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
+            <article class="course-card reveal"><span class="course-icon">O</span><h3>Olympiad Preparation</h3><p>Reasoning and advanced practice for interested students.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
+            <article class="course-card reveal"><span class="course-icon">G</span><h3>Government Exam Preparation</h3><p>Basic preparation support for selected competitive exams.</p><div class="meta"><span class="chip">Planned</span><span class="chip">Details soon</span></div><a class="btn btn-primary" href="#contact">Enquire</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faculty">
+        <div class="shell">
+          <div class="section-head reveal">
+            <h2>Faculty</h2>
+            <p>Faculty photos, names, education, qualifications and messages can be added anytime.</p>
+          </div>
+          <div class="faculty-grid" id="facultyGrid">
+            <div class="empty-videos faculty-empty">No faculty added yet. Add faculty details in <b>people.js</b> and they will appear here.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="shell">
+          <div class="section-head reveal">
+            <h2>Quick Questions</h2>
+            <p>Questions and answers can be added anytime from the admin-editable FAQ file.</p>
+          </div>
+          <div class="faq reveal" id="faqList">
+            <div class="empty-videos">No questions added yet. Add questions and answers in <b>faqs.js</b> and they will appear here.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="shell">
+          <div class="section-head reveal">
+            <h2>Register Interest</h2>
+            <p>Share your details to receive launch, batch and demo updates.</p>
+          </div>
+          <div class="contact-grid">
+            <div class="glass-card reveal">
+              <form>
+                <input aria-label="Student name" name="studentName" placeholder="Student name" required />
+                <input aria-label="Phone number" name="phone" placeholder="Phone number" required />
+                <select aria-label="Course interest" name="courseInterest">
+                  <option>Class 4th to 9th</option>
+                  <option>Class 11-12 Science</option>
+                  <option>Board Exam Preparation</option>
+                  <option>Olympiad Preparation</option>
+                  <option>Government Exam Preparation</option>
+                </select>
+                <textarea aria-label="Message" name="message" placeholder="Any question or preferred batch timing?"></textarea>
+                <button class="btn btn-primary" type="submit">Send Enquiry</button>
+              </form>
+              <p style="margin-top:16px;color:var(--muted)">Email: <a href="mailto:vedvriksh.sn@gmail.com">vedvriksh.sn@gmail.com</a>. Phone and address will be updated soon.</p>
+            </div>
+            <article class="glass-card reveal">
+              <p>Offline class location and online class details will be shared once the setup is ready.</p>
+              <div class="rank-list">
+                <div class="rank"><span><span class="avatar">1</span></span><b>Home setup in progress</b></div>
+                <div class="rank"><span><span class="avatar">2</span></span><b>Courses planned</b></div>
+                <div class="rank"><span><span class="avatar">3</span></span><b>Launch updates soon</b></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a class="floating-whatsapp" href="https://wa.me/919876543210" aria-label="Chat on WhatsApp">WA</a>
+
+    <footer>
+      <div class="shell">
+        <div class="footer-grid">
+          <div><div class="brand footer-brand"><img class="brand-mark" src="assets/logo-vv.jpg" alt="Vedवृक्ष logo" /><span><strong>Vedवृक्ष</strong></span></div><p>A Home for Lifelong Learners.</p></div>
+          <div><h3>Links</h3><a href="#about">About</a><a href="#sonal">Message from Sonal</a><a href="#faculty">Faculty</a><a href="careers.html">Career</a><a href="#contact">Enquiry</a></div>
+          <div><h3>Courses</h3><a href="#courses">Class 4th to 9th</a><a href="#courses">Class 11-12 Science</a><a href="#courses">Boards</a><a href="#courses">Competitive Exams</a></div>
+        </div>
+        <div class="copyright"><span>© 2026 Vedवृक्ष. All rights reserved.</span></div>
+      </div>
+    </footer>
+
+    <script src="site-config.js"></script>
+    <script src="people.js"></script>
+    <script src="videos.js"></script>
+    <script src="faqs.js"></script>
+    <script>
+      const root = document.documentElement;
+      const config = window.VEDVRIKSH_SITE || {};
+      if (config.coverImage) {
+        root.style.setProperty("--hero-cover", `"${config.coverImage}"`);
+        const ogImage = document.querySelector('meta[property="og:image"]');
+        if (ogImage) ogImage.setAttribute("content", config.coverImage);
+      }
+      const themeToggle = document.querySelector("#themeToggle");
+      const storedTheme = localStorage.getItem("vedvriksh-theme");
+      if (storedTheme) root.dataset.theme = storedTheme;
+      themeToggle.textContent = root.dataset.theme === "dark" ? "☀" : "☾";
+      themeToggle.addEventListener("click", () => {
+        root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+        localStorage.setItem("vedvriksh-theme", root.dataset.theme);
+        themeToggle.textContent = root.dataset.theme === "dark" ? "☀" : "☾";
+      });
+
+      document.querySelector("#menuToggle").addEventListener("click", () => {
+        document.querySelector("#navLinks").classList.toggle("open");
+      });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => document.querySelector("#navLinks").classList.remove("open"));
+      });
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
+
+      function renderPeople() {
+        const people = window.VEDVRIKSH_PEOPLE || {};
+        const owner = people.owner || {};
+        const ownerPhoto = document.querySelector("#ownerPhoto");
+        if (owner.photo) ownerPhoto.style.setProperty("--owner-photo", `url("${owner.photo}")`);
+        if (owner.name) ownerPhoto.setAttribute("aria-label", `${owner.name} photo`);
+        if (owner.message) document.querySelector("#ownerMessage").textContent = owner.message;
+        if (owner.about) document.querySelector("#ownerAbout").textContent = owner.about;
+
+        const facultyGrid = document.querySelector("#facultyGrid");
+        const faculty = Array.isArray(people.faculty) ? people.faculty : [];
+        const validFaculty = faculty.filter((member) => member.name || member.photo || member.message);
+        if (!validFaculty.length) return;
+        facultyGrid.innerHTML = validFaculty.map((member) => `
+          <article class="profile-card reveal visible">
+            <div class="faculty-photo" style="--faculty-photo:url('${member.photo || "assets/logo-vv.jpg"}')" role="img" aria-label="${member.name || "Faculty"} photo"></div>
+            <h3>${member.name || "Faculty Name"}</h3>
+            <p><b>Education:</b> ${member.education || "To be updated"}</p>
+            <p><b>Qualification:</b> ${member.qualification || "To be updated"}</p>
+            <p style="margin-top:10px">${member.message || "Message will be added soon."}</p>
+          </article>
+        `).join("");
+      }
+      renderPeople();
+
+      function youtubeIdFromUrl(url) {
+        try {
+          const parsed = new URL(url);
+          if (parsed.hostname.includes("youtu.be")) return parsed.pathname.split("/").filter(Boolean)[0];
+          if (parsed.pathname.includes("/shorts/")) return parsed.pathname.split("/shorts/")[1].split("/")[0];
+          if (parsed.pathname.includes("/embed/")) return parsed.pathname.split("/embed/")[1].split("/")[0];
+          return parsed.searchParams.get("v");
+        } catch {
+          return "";
+        }
+      }
+
+      function renderVideos() {
+        const grid = document.querySelector("#videoGrid");
+        const videos = Array.isArray(window.VEDVRIKSH_VIDEOS) ? window.VEDVRIKSH_VIDEOS : [];
+        const validVideos = videos.map((video) => ({ ...video, id: youtubeIdFromUrl(video.url || "") })).filter((video) => video.id);
+        if (!validVideos.length) return;
+        grid.innerHTML = validVideos.map((video) => {
+          const type = video.type === "short" ? "short" : "video";
+          return `
+            <article class="video-card ${type}">
+              <iframe
+                class="video-frame"
+                src="https://www.youtube.com/embed/${video.id}"
+                title="${video.title || "Vedvriksh YouTube video"}"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+              <div class="video-body">
+                <h3>${video.title || "YouTube update"}</h3>
+                <p>${type === "short" ? "YouTube Short" : "YouTube Video"}</p>
+              </div>
+            </article>
+          `;
+        }).join("");
+      }
+      renderVideos();
+
+      function renderFaqs() {
+        const list = document.querySelector("#faqList");
+        const faqs = Array.isArray(window.VEDVRIKSH_FAQS) ? window.VEDVRIKSH_FAQS : [];
+        const validFaqs = faqs.filter((faq) => faq.question && faq.answer);
+        if (!validFaqs.length) return;
+        list.innerHTML = validFaqs.map((faq, index) => `
+          <details ${index === 0 ? "open" : ""}>
+            <summary>${faq.question}</summary>
+            <p>${faq.answer}</p>
+          </details>
+        `).join("");
+      }
+      renderFaqs();
+
+      document.querySelector("form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const values = Object.fromEntries(new FormData(form).entries());
+        const enquiry = {
+          studentName: values.studentName || "",
+          phone: values.phone || "",
+          courseInterest: values.courseInterest || "",
+          message: values.message || "",
+          submittedAt: new Date().toLocaleString("en-IN")
+        };
+        const saved = JSON.parse(localStorage.getItem("vedvrikshEnquiries") || "[]");
+        saved.push(enquiry);
+        localStorage.setItem("vedvrikshEnquiries", JSON.stringify(saved));
+        const body = encodeURIComponent(
+          `New Vedvriksh enquiry\n\n` +
+          `Student Name: ${enquiry.studentName}\n` +
+          `Phone: ${enquiry.phone}\n` +
+          `Course Interest: ${enquiry.courseInterest}\n` +
+          `Message: ${enquiry.message}\n` +
+          `Submitted At: ${enquiry.submittedAt}`
+        );
+        window.location.href = `mailto:vedvriksh.sn@gmail.com?subject=${encodeURIComponent("New Vedvriksh Enquiry")}&body=${body}`;
+        alert("Thank you. Your enquiry has been prepared for email. Please send the email so Vedvriksh can receive it.");
+        form.reset();
+      });
+    </script>
+  </body>
+</html>

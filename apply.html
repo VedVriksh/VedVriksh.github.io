@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apply | Vedवृक्ष</title>
+    <link rel="stylesheet" href="careers.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html"><img src="assets/logo-vv.jpg" alt="Vedवृक्ष logo" /><span>Vedवृक्ष</span></a>
+      <a class="button ghost" href="careers.html">All Positions</a>
+    </header>
+    <main class="page">
+      <section class="hero-panel compact">
+        <p class="eyebrow">Application</p>
+        <h1 id="applyTitle">Apply</h1>
+        <p id="applyMeta"></p>
+      </section>
+      <section class="card">
+        <div id="authGate" class="auth-gate">
+          <h2>Login or Sign-up before applying</h2>
+          <p>Please login if you already have an account, or create a new account to continue.</p>
+          <div class="actions"><button class="button" data-auth="login">Login</button><button class="button ghost" data-auth="signup">Sign-up</button></div>
+        </div>
+        <form id="applyForm" class="hidden">
+          <div id="dynamicQuestions" class="form-grid"></div>
+          <label>Upload Resume <input type="file" id="resume" accept=".pdf,.doc,.docx" required /></label>
+          <div class="notice">Static preview note: resume upload and email delivery require backend integration. This form stores preview data in this browser and opens a prepared email draft where supported.</div>
+          <button class="button" type="submit">Submit Application</button>
+        </form>
+      </section>
+      <section class="card">
+        <h2>Application Status</h2>
+        <p id="statusText">Login to check your status for this job.</p>
+      </section>
+    </main>
+
+    <dialog id="authDialog">
+      <form method="dialog" class="modal" id="authForm">
+        <button class="close" value="cancel" aria-label="Close">×</button>
+        <h2 id="authTitle">Login</h2>
+        <div id="authFields"></div>
+        <p class="helper" id="authHelper"></p>
+        <button class="button" id="authSubmit" value="default">Submit</button>
+        <button class="link-button" type="button" id="forgotBtn">Forgot Password?</button>
+      </form>
+    </dialog>
+
+    <dialog id="forgotDialog">
+      <form method="dialog" class="modal" id="forgotForm">
+        <button class="close" value="cancel" aria-label="Close">×</button>
+        <h2>Forgot Password?</h2>
+        <div id="forgotStep"></div>
+        <button class="button" id="forgotSubmit" value="default">Submit</button>
+      </form>
+    </dialog>
+
+    <script src="careers-data.js"></script>
+    <script src="careers.js"></script>
+  </body>
+</html>
